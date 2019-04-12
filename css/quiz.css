@@ -1,0 +1,560 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,700,900);
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700&subset=cyrillic');
+
+::-moz-selection {
+	background: #000;
+	color: #FFF
+}
+
+::selection {
+	background: #000;
+	color: #FFF
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	color: #000;
+	background: #0c1514;
+	text-rendering: optimizelegibility;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-tap-highlight-color: rgba(0, 0, 0, 0);
+	-moz-text-size-adjust: none;
+	-moz-font-smoothing: antialiased;
+	-ms-tap-highlight-color: rgba(0, 0, 0, 0);
+	-ms-text-size-adjust: none;
+	-ms-font-smoothing: antialiased
+}
+
+.test-bg {
+		background: url(../test-bg.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.outer {
+		display: table;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
+
+	.middle {
+		margin-top: 100px;
+	}
+
+	.inner {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
+
+	.quiz-holder {
+		margin: 0 auto;
+		background: #FFF;
+		width: 580px;
+		box-shadow: 0 0 20px #000;
+		padding: 15px 25px 25px 25px;
+	}
+
+	.question {
+		background: #f4f4f4;
+		color: #0f0f0f;
+		font-family: 'Roboto', sans-serif;
+		font-size: 26px;
+		font-weight: 700;
+		text-align: center;
+		line-height: 120%;
+		padding: 90px 25px;
+		border: 1px #d2d2d2 solid;
+	}
+
+
+
+h1.h1-quiz {
+  color: rgba(0,0,0,.95);
+font-size: 16px;
+	font-weight: normal;
+	margin-top: 1.5em;
+}
+h2.h2-quiz {
+	font-family: 'Noto Serif', serif;
+  color: rgba(0,0,0,.95);
+font-size: 33px;
+	font-weight: normal;
+	margin: 0.1em 0 .5em 0;
+}
+.faded {
+  color: #777;
+}
+#quiz-counter {
+  color: #AAA;
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.quiz-container a {
+    text-decoration: none;
+    color: #333;
+}
+
+#quiz-header,
+#quiz-start-screen,
+#quiz-results-screen,
+#quiz-counter {
+    text-align: center;
+}
+
+.answers {
+    list-style: none;
+    padding: 0;
+	border-left: 1px #d2d2d2 solid;
+	border-right: 1px #d2d2d2 solid;
+}
+
+.answers a {
+    display: block;
+    padding: 1em 1em;
+    background: #fff;
+	font-size: 16px;
+	line-height: 140%;
+	border-bottom: 1px #d2d2d2 solid;
+}
+
+.answers a.correct {
+    border-left: 7px #42ac4a solid;
+	background-image: url(../correct.png);
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+}
+.answers a.incorrect {
+    border-left: 7px #ac4242 solid;
+	background-image: url(../incorrect.png);
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+}
+
+.answers a.correct,
+.answers a.incorrect {
+    color: #a7a7a7;
+}
+
+#quiz-controls {
+    background: #f4f4f4;
+    padding: 1em 1em;
+	line-height: 140%;
+	font-size: 16px;
+	font-weight: 700;
+	color: #282828;
+	border-right: 1px #d2d2d2 solid;
+	border-left: 1px #d2d2d2 solid;
+	border-bottom: 1px #d2d2d2 solid;
+}
+
+#quiz-response {}
+#quiz-response a {color: #aa945f; text-decoration: none; border-bottom: 1px #aa945f solid;}
+
+#quiz-results {
+    font-size: 1.25em;
+	background: #FFF;
+    width: 90%;
+    margin: 0 auto;
+    border-top: 5px #9d8752 solid;
+    padding: 1em 0;
+    color: #000;
+	margin-top: 10px;
+	text-align: center;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+	box-shadow: 0 0 10px #000;
+}
+
+#quiz-buttons {text-align: center;}
+#quiz-buttons a,
+.quiz-container .quiz-button {
+    display: inline-block;
+    padding: 0.3em 2.5em;
+    background: #aa945f;
+    color: #fff;
+	font-size: 14px;
+	text-shadow: 1px 1px 0 #927f52;
+	border-radius: 3px;
+    margin-top: 0.5em;
+}
+#quiz-buttons a {
+    background: #aa945f;
+    color: #FFF;
+	text-shadow: 1px 1px 0 #927f52; 
+}
+#quiz-buttons a:hover, .quiz-results-state #quiz-buttons a:hover {background: #9d8752;}
+
+/* Quiz State Overrides */
+
+.quiz-results-state #quiz-controls {
+    background: none;
+    padding: 0;
+}
+.quiz-results-state #quiz-buttons a {
+    background: #aa945f;
+    color: #fff;
+	font-size: 14px;
+	text-shadow: 1px 1px 0 #927f52;
+	margin: 15px;
+}
+
+#quiz-results-screen {
+	display: block;
+    width: 100%;
+    height: 203px;
+    background: #FCF;
+    background-image: url(../quiz-result.jpg);
+    padding-top: 130px;
+	text-align: left;
+}
+
+#quiz-results-screen::before {
+	content: "Тест на знание фактов: толерантность или жизнь?";
+    color: rgba(255,255,255,.7);
+    margin: 0 5% 20px 5%;
+}
+
+
+
+
+
+
+
+
+
+header {
+	height: 3rem;
+	position: relative;
+	border-bottom: 1px #333 solid;
+	z-index: 20;
+	background: rgba(0, 0, 0, .3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%
+}
+
+header h1 {
+	color: #000;
+	text-align: left;
+	font-family: 'Fira Sans';
+	font-size: 30px;
+	line-height: 3rem;
+	font-weight: 900;
+	padding-left: 30px;
+	display: inline-block;
+}
+header h1 a {color: #9d8752; text-decoration: none;}
+
+
+.send-f {
+	display: block;
+	background: #99844a;
+	float: right;
+	color: #FFF;
+	padding: 0 15px;
+	text-decoration: none;
+	cursor: pointer;
+	height: 3rem;
+	line-height: 3rem
+}
+
+.send-f:visited,
+.send-f:link {
+	opacity: 1
+}
+
+.send-f:hover,
+.send-f:active {
+	background: #863d9f;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease
+}
+
+.send-x {
+	display: block;
+	float: right;
+	padding: 0 15px;
+	text-decoration: underline;
+	cursor: pointer;
+	height: 3rem;
+	line-height: 3rem;
+}
+
+.send-x,
+.send-x:visited,
+.send-x:link {
+	color: #9d8752;
+}
+
+
+.quiz-start-it {background: #f7f7f7; border: 1px #dcdcdc solid; padding: 2em;}
+a.start-ef-link:link, a.start-ef-link:visited {font-size: 13px; color: #bababa; text-decoration: none; border-bottom: 1px #ceb476 solid;} 
+
+#quiz-start-screen p {text-align: left; margin: 1em 0 0 0; font-size: 15px; line-height: 130%;}
+
+.quiz-start-btn-holder {text-align: center !important;}
+
+#quiz-start-btn {
+	padding: 11px 1.5em 10px 1.5em;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+a#quiz-start-btn:hover {background: #9d8752}
+
+.fuckoff-zhiduza {color: rgba(0,0,0,.4); font-size: 14px; text-align: left; line-height: 140%;
+	padding: 1.7em 7em;
+    text-align: center;
+    border-bottom: 1px solid #e4e4e4;
+}
+.fuckoff-zhiduza img {position: absolute;}
+
+
+.share-fullsize {margin-top: 2em;}
+
+.resp-sharing-button__link {border-right: 1px #CCC solid; text-align: center;}
+
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+	display: inline-block;
+	width: 23%;
+	vertical-align: middle;
+	color: #999 !important;
+	font-size: 14px;
+	width: 40px;
+	margin-top: 1px;
+}
+
+.resp-sharing-button__link:hover,
+.resp-sharing-button__link:active {
+	border-bottom: none !important
+}
+
+.resp-sharing-button {
+	padding: .2em 0;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease
+}
+
+.resp-sharing-button--small svg {
+	margin: 0;
+	vertical-align: middle
+}
+
+.resp-sharing-button__icon {
+	width: 20px;
+	stroke: #fff;
+	fill: none;
+}
+
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+	fill: #fff;
+	stroke: none
+}
+
+.resp-sharing-button--twitter {
+	background-color: #FFF
+}
+
+.resp-sharing-button--twitter:hover {
+	background-color: #FFF
+}
+
+.resp-sharing-button--pinterest {
+	background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+	background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+	background-color: #FFF
+}
+
+.resp-sharing-button--facebook:hover {
+	background-color: #FFF
+}
+
+.resp-sharing-button--tumblr {
+	background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+	background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+	background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+	background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+	background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+	background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+	background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+	background-color: #046293
+}
+
+.resp-sharing-button--email {
+	background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+	background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+	background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+	background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+	background-color: #FFF
+}
+
+.resp-sharing-button--whatsapp:hover {
+	background-color: #FFF
+}
+
+.resp-sharing-button--hackernews {
+	background-color: #F60
+}
+
+.resp-sharing-button--hackernews:hover,
+.resp-sharing-button--hackernews:focus {
+	background-color: #FB6200
+}
+
+.resp-sharing-button--vk {
+	background-color: #FFF
+}
+
+.resp-sharing-button--vk:hover {
+	background-color: #FFF
+}
+
+.resp-sharing-button--facebook {
+	background-color: #FFF;
+	border-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+	background-color: #FFF;
+	border-color: #2d4373
+}
+
+.resp-sharing-button--twitter {
+	background-color: #FFF;
+	border-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+	background-color: #FFF;
+	border-color: #2795e9
+}
+
+.resp-sharing-button--google {
+	background-color: #dd4b39;
+	border-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover,
+.resp-sharing-button--google:active {
+	background-color: #c23321;
+	border-color: #c23321
+}
+
+.resp-sharing-button--email {
+	background-color: #777;
+	border-color: #777
+}
+
+.resp-sharing-button--email:hover,
+.resp-sharing-button--email:active {
+	background-color: #5e5e5e;
+	border-color: #5e5e5e
+}
+
+.resp-sharing-button--whatsapp {
+	background-color: #FFF;
+	border-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover,
+.resp-sharing-button--whatsapp:active {
+	background-color: #FFF;
+	border-color: #1DA851
+}
+
+.resp-sharing-button--vk {
+	background-color: #FFF;
+	border-color: #507299
+}
+
+.resp-sharing-button--vk:hover .resp-sharing-button--vk:active {
+	background-color: #FFF;
+	border-color: #43648c
+}
+
+.resp-sharing-button--telegram {
+	background-color: #54A9EB
+}
+
+.resp-sharing-button--telegram:hover {
+	background-color: #4B97D1
+}
+
+.send-x:hover,
+.send-x:active {
+	color: #927b3d;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease
+}
+.share-line {
+	font-weight: 700;
+    color: #999;
+    font-size: 13px;
+}
+.resp-sharing-button__icon-vk {width: 20px;}
+.resp-sharing-button__icon-twitter {width: 20px; position: relative;}
